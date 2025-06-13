@@ -76,11 +76,25 @@ We can see that the changes are now committed to the repository. The -m flag is 
 git commit -m "commit message"
 ```
 
+We can add description to our commits like so : 
+
+```
+git commit -m "Title" -m "description"
+```
+
+We can also use the editor :
+```
+git commit
+```
+This will open up the editor and we we can add the title then leave a line and add the desctiption.
+
+<br>
 
 **Logs**  
-This command will show you the history of your repository. It will show you all the commits that were made to the repository and info about the commit. You can use the --oneline flag to show only the commit message.
+This command will show you the history of your repository. It will show you all the commits that were made to the repository and info about the commit. You can use the `--oneline` flag to show only the commit message.
 ```
 git log
+git log --oneline
 ```
 <br>
 
@@ -96,6 +110,10 @@ git config --global core.editor "code --wait"
 Gitignore is a file that tells git which files and folders to ignore. It is a way to prevent git from tracking certain files or folders. You can create a gitignore file and add list of files and folders to ignore.
 
 
-*NOTE* - since git does not track empty folders, we can add a `.gitkeep` file in them for git to allow tracking 
+*NOTE* - since git does not track empty folders, we can add a `.gitkeep` file in them for git to allow tracking  
+<br>
+
+## Git Branches  
+
 
 <!-- some basic linus commands -->
