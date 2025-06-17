@@ -307,6 +307,35 @@ git tag <tag-name> <commit-hash>
 git push origin <tag-name>
 ```
 
+#### Delete a tag
+```
+git tag -d <tag-name>
+```
+
+#### Delete tag on remote repository
+```
+git push origin :<tag-name>
+```
+<br>
+
+## Managing History 
+
+### Rebase in git
+Git rebase is a powerful Git feature used to change the base of a branch. It effectively allows you to move a branch to a new starting point, usually a different commit, by “replaying” the commits from the original base onto the new base. This can be useful for keeping a cleaner, linear project history.  
+
+#### Ensure you are on the branch you want to rebase
+```
+git checkout feature-branch
+git rebase main
+```  
+
+#### Resolve any conflicts
+If there are any conflicts, you will need to resolve them manually. You can use the merge tool in VSCode to resolve the conflicts.
+```
+git add <resolved-files>
+git rebase --continue
+```
+
 <br><br>
 
 ## Useful Linus Commands
