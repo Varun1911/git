@@ -190,6 +190,125 @@ Abort the merge when faced with conflicts to get back to the same state.
 git merge --abort
 ```
 
+## Diff, Stash and Tags
 
+### Git diff
+It is used to compare the changes made in one commit with the changes made in another commit. Git consider the changed versions of same file as two different files.  
+
+Comparing Working Directory and Staging Area
+
+```
+git diff
+```
+<br>
+Comparing Staging Area with Repository
+
+```
+git diff --staged
+```
+<br>
+Comparing Two Branches
+
+```
+git diff <branch-name-one> <branch-name-two>
+<!-- or -->
+git diff branch-name-one..branch-name-two
+```
+<br>
+Comparing Specific Commits
+
+```
+git diff <commit-hash-one> <commit-hash-two>
+```
+
+#### How to Read the Diff Output
+* a/ –> the original file (before changes)
+* b/ –> the updated file (after changes)
+* --- –> marks the beginning of the original file
+* +++ –> marks the beginning of the updated file
+* @@ –> shows the line numbers and position of changes  
+
+
+### Git Stash
+Stash is a way to save your changes in a temporary location. It’s useful when switching branches without losing work. You can then come back to the file later and apply the changes.  
+Conflicting changes will not allow you to switch branches without committing the changes.  
+Stash is like a stack.
+```
+git stash
+```
+
+#### Naming the stash
+```
+git stash save "work in progress on X feature"
+```
+#### View the stash list
+```
+git stash list
+```
+
+#### Apply the Most Recent Stash
+```
+git stash apply
+```
+
+#### Apply Specific Stash
+```
+git stash apply stash@{0}
+```
+
+#### Applying and Drop a Stash
+This will apply the stash and also remove it from the stash
+```
+git stash pop
+```
+
+#### Drop the stash
+```
+git stash drop
+```
+
+#### Applying stash to a specific branch
+```
+git stash apply stash@{0} <branch-name>
+```
+
+
+#### Clearing the stash
+```
+git stash clear
+```
+
+### Git Tags
+Tags are a way to mark a specific point in your repository. They are useful when you want to remember a specific version of your code or when you want to refer to a specific commit. Tags are like sticky notes that you can attach to your commits.  
+
+#### Creating a tag  
+```
+git tag <tag-name>  
+```  
+
+#### Create an annotated tag  
+```
+git tag -a <tag-name> -m "Release 1.0"  
+```  
+
+#### List all tags
+```
+git tag
+```
+
+#### Tagging a specific commit
+```
+git tag <tag-name> <commit-hash>
+```
+
+
+#### Push tags to remote repository
+```
+git push origin <tag-name>
+```
+
+<br><br>
+
+## Useful Linus Commands
 <!-- some basic linus commands -->
 <table data-start="258" data-end="771" class="w-fit min-w-(--thread-content-width)"><thead data-start="258" data-end="304"><tr data-start="258" data-end="304"><th data-start="258" data-end="268" data-col-size="sm">Command</th><th data-start="268" data-end="282" data-col-size="md">Description</th><th data-start="282" data-end="304" data-col-size="sm">Windows Equivalent</th></tr></thead><tbody data-start="351" data-end="771"><tr data-start="351" data-end="393"><td data-start="351" data-end="358" data-col-size="sm"><code data-start="353" data-end="357">ls</code></td><td data-col-size="md" data-start="358" data-end="384">List directory contents</td><td data-col-size="sm" data-start="384" data-end="393"><code data-start="386" data-end="391">dir</code></td></tr><tr data-start="394" data-end="428"><td data-start="394" data-end="401" data-col-size="sm"><code data-start="396" data-end="400">cd</code></td><td data-start="401" data-end="420" data-col-size="md">Change directory</td><td data-col-size="sm" data-start="420" data-end="428"><code data-start="422" data-end="426">cd</code></td></tr><tr data-start="429" data-end="494"><td data-start="429" data-end="437" data-col-size="sm"><code data-start="431" data-end="436">pwd</code></td><td data-col-size="md" data-start="437" data-end="463">Print current directory</td><td data-col-size="sm" data-start="463" data-end="494"><code data-start="465" data-end="469">cd</code> (shows path in prompt)</td></tr><tr data-start="495" data-end="539"><td data-start="495" data-end="505" data-col-size="sm"><code data-start="497" data-end="504">mkdir</code></td><td data-col-size="md" data-start="505" data-end="528">Create new directory</td><td data-col-size="sm" data-start="528" data-end="539"><code data-start="530" data-end="537">mkdir</code></td></tr><tr data-start="540" data-end="618"><td data-start="540" data-end="547" data-col-size="sm"><code data-start="542" data-end="546">rm</code></td><td data-col-size="md" data-start="547" data-end="598">Delete files or directories (<code data-start="578" data-end="582">-r</code> for recursive)</td><td data-col-size="sm" data-start="598" data-end="618"><code data-start="600" data-end="605">del</code> or <code data-start="609" data-end="616">rmdir</code></td></tr><tr data-start="619" data-end="671"><td data-start="619" data-end="626" data-col-size="sm"><code data-start="621" data-end="625">cp</code></td><td data-col-size="md" data-start="626" data-end="651">Copy files/directories</td><td data-col-size="sm" data-start="651" data-end="671"><code data-start="653" data-end="659">copy</code> / <code data-start="662" data-end="669">xcopy</code></td></tr><tr data-start="672" data-end="712"><td data-start="672" data-end="679" data-col-size="sm"><code data-start="674" data-end="678">mv</code></td><td data-start="679" data-end="702" data-col-size="md">Move or rename files</td><td data-col-size="sm" data-start="702" data-end="712"><code data-start="704" data-end="710">move</code></td></tr><tr data-start="713" data-end="771"><td data-start="713" data-end="723" data-col-size="sm"><code data-start="715" data-end="722">touch</code></td><td data-col-size="md" data-start="723" data-end="746">Create an empty file</td><td data-col-size="sm" data-start="746" data-end="771"><code data-start="748" data-end="769">type nul &gt; file.txt</code></td></tr><tr data-start="904" data-end="964"><td data-start="904" data-end="921" data-col-size="sm"><code data-start="906" data-end="920">cat file.txt</code></td><td data-col-size="sm" data-start="921" data-end="945">Display file contents</td><td data-col-size="sm" data-start="945" data-end="964"><code data-start="947" data-end="962">type file.txt</code></td></tr></tbody></table>
