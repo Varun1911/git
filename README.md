@@ -363,6 +363,59 @@ git reflog <commit-hash>
 git reset --hard HEAD@{1}
 ```
 
+<br>
+
+## Some Other Useful Commands
+
+###  Unstage Changes
+This removes the file from staging (git add) but doesn't delete or change the actual modifications.
+```
+git restore --staged <file>
+<!-- or -->
+git restore --staged .
+<!-- to unstage all files -->
+```
+
+### Discard Local Changes
+This reverts your local modifications (working directory) to match the last committed state. This is **destructive** — changes will be lost.
+```
+git restore <file>
+<!-- or, to remove all changes -->
+git restore .
+```
+
+### Discard All Untracked Files
+
+To remove untracked files
+```
+git clean -f
+```
+
+For directories as well
+```
+git clean -fd
+```
+
+To see what it would delete before running
+```
+git clean -n
+```
+<br>
+
+###  Discard All Changes (Hard Reset)
+This resets your repo to the latest commit — both staging and working directory
+```
+git reset --hard HEAD
+```
+<br>
+
+### Uncommit but keep the changes
+Leaves your file changes in the staging area.Makes it easy to tweak the commit or re-commit.
+```
+git reset --soft <commit>
+git reset --soft HEAD~1
+```
+
 <br><br>
 
 ## Useful Linus Commands
