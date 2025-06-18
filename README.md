@@ -335,6 +335,33 @@ If there are any conflicts, you will need to resolve them manually. You can use 
 git add <resolved-files>
 git rebase --continue
 ```
+<br>
+
+### Git Reflog
+Git reflog is a command that shows you the history of your commits. It allows you to see the changes that you have made to your repository over time. This can be useful for debugging and understanding the history of your project.  
+
+#### View the reflog
+```
+git reflog
+```
+
+#### Find specific commit
+```
+git reflog <commit-hash>
+```
+
+#### Recover lost commits or changes  
+If you accidentally deleted a branch or made changes that are no longer visible in the commit history, you can often recover them using the reflog. First, find the reference to the commit where the branch or changes existed, and then reset your branch to that reference.
+```
+git reflog <commit-hash>
+git reset --hard <commit-hash>
+```
+
+or you can use HEAD@{n} to reset to the nth commit before the one you want to reset to.
+```
+git reflog <commit-hash>
+git reset --hard HEAD@{1}
+```
 
 <br><br>
 
